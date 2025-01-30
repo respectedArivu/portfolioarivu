@@ -12,7 +12,7 @@ const app = express();
 const port = 5000;
 
 // CORS setup for specific origin (adjust as needed)
-app.use(cors({ origin: "http://localhost:3000" }));
+app.use(cors({ origin: "https://arivanandhan.netlify.app/" }));
 app.use(bodyParser.json());
 
 // Connect to MongoDB using environment variable (MONGODB_URI)
@@ -70,7 +70,7 @@ app.post("/register", async (req, res) => {
     from: process.env.EMAIL_USER,
     to: email,
     subject: "Please verify your email address",
-    text: `Hello ${username},\n\nPlease verify your account by clicking the link below:\n\nhttp://localhost:5000/verify/${newUser._id}`,
+    text: `Hello ${username},\n\nPlease verify your account by clicking the link below:\n\nhttps://liveportbackend.onrender.com/verify/${newUser._id}`,
   };
 
   transporter.sendMail(mailOptions, (err, info) => {
@@ -135,5 +135,5 @@ app.post("/login", async (req, res) => {
 
 // Server listening
 app.listen(port, () => {
-  console.log(`Server running on http://localhost:${port}`);
+  console.log(`Server running on render`);
 });

@@ -6,8 +6,7 @@ import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import RegisterPage from "./RegisterPage"; // Import RegisterPage
 import LoginPage from "./LoginPage"; // Import LoginPage
 import { HashLink } from 'react-router-hash-link'; 
-import XPage from "./XPage"; // Page X
-import YPage from "./YPage"; 
+
 import PostLoginPage from "./PostLoginPage";
 import HomePage from './HomePage'; // Add this import
 
@@ -50,7 +49,7 @@ function App() {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:5000/request-callback", callbackFormData);
+      const response = await axios.post("https://liveportbackend.onrender.com/request-callback", callbackFormData);
       setMessage(response.data.message);
     } catch (error) {
       setMessage("There was an error submitting your request.");
@@ -62,7 +61,7 @@ function App() {
     e.preventDefault();
 
     try {
-      const response = await axios.get("http://localhost:5000/fetch-request", {
+      const response = await axios.get("https://liveportbackend.onrender.com/fetch-request", {
         params: { name: fetchData.name, phoneNumber: fetchData.phoneNumber }
       });
       setFetchedDetails(response.data);
@@ -249,46 +248,7 @@ function App() {
           <div className="content">
             <h2 className="skills-title">Skills</h2>
             <div className="skills-cards">
-              <div className="card">
-                <div className="card-inner">
-                  <div className="card-front">
-                    <h3>New Relic</h3>
-                  </div>
-                  <div className="card-back">
-                    <p>Setting up monitors, analyzing performance, and creating dashboards.</p>
-                  </div>
-                </div>
-              </div>
-              <div className="card">
-                <div className="card-inner">
-                  <div className="card-front">
-                    <h3>Jira</h3>
-                  </div>
-                  <div className="card-back">
-                    <p>Workflow management, issue tracking, and ITSM best practices.</p>
-                  </div>
-                </div>
-              </div>
-              <div className="card">
-                <div className="card-inner">
-                  <div className="card-front">
-                    <h3>ReactJS</h3>
-                  </div>
-                  <div className="card-back">
-                    <p>Developing dynamic web applications with component-based architecture.</p>
-                  </div>
-                </div>
-              </div>
-              <div className="card">
-                <div className="card-inner">
-                  <div className="card-front">
-                    <h3>Client Communication</h3>
-                  </div>
-                  <div className="card-back">
-                    <p>Acting as a bridge between technical teams and clients to ensure seamless communication.</p>
-                  </div>
-                </div>
-              </div>
+              {/* Skill Cards */}
             </div>
           </div>
         </section>
@@ -297,18 +257,7 @@ function App() {
           <div className="content">
             <h2>Projects & Experience</h2>
             <div className="project-list">
-              <div className="project-item">
-                <h3>Blockbuster Style Website</h3>
-                <p>
-                  Developed and deployed a responsive website using ReactJS for Blockbuster Style Pvt. Ltd., hosted on GoDaddy.
-                </p>
-              </div>
-              <div className="project-item">
-                <h3>Service Desk Optimization</h3>
-                <p>
-                  Enhanced incident management workflows and SLA compliance using Jira, ensuring improved task resolution.
-                </p>
-              </div>
+              {/* Projects */}
             </div>
           </div>
         </section>

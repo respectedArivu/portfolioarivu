@@ -22,7 +22,8 @@ function RegisterPage() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post("http://localhost:5000/register", formData);
+      const response = await axios.post("https://liveportbackend.onrender.com/register", formData);
+
       setMessage(response.data.message);
       toast.success(response.data.message); // Display success toast
     } catch (error) {

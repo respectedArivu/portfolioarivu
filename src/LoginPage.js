@@ -16,7 +16,8 @@ function LoginPage() {
     e.preventDefault();
 
     try {
-      const response = await axios.post("http://localhost:5000/login", { email, password });
+      const response = await axios.post("https://liveportbackend.onrender.com/login", { email, password });
+
 
       if (response.data.token) {
         // Save the token to localStorage
